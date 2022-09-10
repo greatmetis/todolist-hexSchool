@@ -1,4 +1,4 @@
-export const redirect = (url) => {
+export const redirect = (url='/index.html') => {
   window.location.pathname = url
 }
 

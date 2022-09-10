@@ -48,7 +48,7 @@ class Login {
           timer: 1000
         })
         LoginEmail.value = LoginPassword.value = ''
-        redirect('/')
+        redirect('/index.html')
         return res.toJSON()
       })
       .catch((err) => {
@@ -90,6 +90,7 @@ RegisterSwitch.addEventListener('click', function () {
 LoginButton.addEventListener('click', function (e) {
   e.preventDefault()
   if (!checkValue(LoginEmail, LoginPassword)) {
+    redirect()
     UI.showError(LoginEmailHint)
     UI.showError(LoginPasswordHint)
     return
