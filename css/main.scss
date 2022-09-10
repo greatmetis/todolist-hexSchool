@@ -1,0 +1,285 @@
+@import './variables.scss';
+@import './global.scss';
+
+//============================ //
+// *** Table of Content *** //
+// * Index.html
+// * Login.html
+//============================ //
+
+// ===== Index.html ===== //
+.header{
+  display: flex;
+  justify-content: space-between;
+
+  .header__info{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    .greeting{
+      display: block;
+      margin-right: 1rem;
+    }
+    .log-out-btn{
+      font-weight: 600;
+      opacity: 0.3;
+      border: 1px solid #000;
+      border-radius: 4px;
+      padding: 0.375rem;
+      @include transition(all);
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+}
+@media(max-width:$media-sm){
+  .header__info .greeting{
+    display: none;
+  }
+}
+.main{
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem;
+  overflow: hidden;
+  &.empty{
+    .empty-list{
+      display: block;
+    }
+    .todo-list{
+      display: none;
+    }
+  }
+}
+@media(max-width:$media-sm){
+  .main{
+    padding: 2.5rem 0;
+  }
+}
+.todo-input,.todo-list{
+  margin:0 auto;
+  
+}
+.todo-input{
+  @include box(100%,48px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: $color--white;
+  .todo-input__input{
+    width: 80%;
+    padding: 0.5rem;
+  }
+  .todo-input__add-btn{
+    @include sqr(40px);
+    background: url(../assets/plus.svg) no-repeat center;
+    background-color: $color--black;
+    color:$color--white;
+    font-size:2rem;
+    letter-spacing: 1.23px;
+    text-align: center;
+  }
+}
+
+.todo-list{
+  @include box;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  box-shadow: 0px 0px 15px rgba($color--black, 0.15);
+  .todo-list__filter{
+    display: flex;
+    height:3rem;
+    background-color: $color--white;
+    border-radius: $bdrs $bdrs 0 0;
+    li{
+      flex:1;
+      border-bottom: 2px $color--gray-light solid;
+      text-transform: uppercase;
+      color:$color--gray;
+      font-weight: 700;
+      text-align:center;
+      &.selected{
+        border-color:$color--black;
+        color:$color--black;
+      }
+      label{
+        display: block;
+        padding:1rem 0;
+        cursor: pointer;
+        &:hover {
+            color:darken($color--gray,10)
+        }
+      }
+      input[type="radio"]{
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+  .todo-list__list{
+    .list__item{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $color--white;
+      padding: 1.5rem 1rem 1rem 1rem;
+      position: relative;
+      label{
+        padding-left: 44px;
+        cursor: pointer;
+      }
+      input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        display: block;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+      span{
+        position: relative;
+        padding:1rem 0;
+        border-bottom:1px $color--gray-light solid;
+        width: 100%;
+        &::after{
+          content: '';
+          position: absolute;
+          left: -1.5rem;
+          top: 27%;
+          transform: rotate(45deg);
+          height: 15px;
+          width: 0.5rem;
+          border-radius: 1px;
+          border-bottom: 3px solid $color--primary;
+          border-right: 3px solid $color--primary;
+          pointer-events: none;
+          opacity: 0;
+          @include transition(opacity)
+        }
+        &::before{
+          content: '';
+          position: absolute;
+          @include sqr(20px,5px);
+          border: 1px solid #000;
+          left: -2rem;
+          transform: scale(1);
+          @include transition(transform);
+        }
+      }
+      button.del-todo-btn{
+        margin-top:-1rem;
+        background: url(../assets/button-cross.jpg) no-repeat center;
+        width: 1rem;
+        height:1rem;
+        opacity: 0;
+        @include transition(opacity);
+      }
+
+      &:hover{
+        button{
+          opacity: 1;
+        }
+      }
+      input{
+        &:checked{
+          ~span{
+            text-decoration: line-through;
+            color:$color--gray;
+          }
+          ~::before{
+            transform: scale(0);
+          }
+          ~::after{
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .todo-list__info{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background-color: $color--white;
+    border-radius: 0 0 $bdrs $bdrs;
+    *{
+      text-transform: uppercase;
+    }
+    button{
+      color:$color--gray;
+      &:hover{
+        color:$color--warning;
+        font-weight: 700;
+        @include transition(color);
+      }
+    }
+  }
+}
+
+.empty-list{
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;  
+  display: none;
+  h2{
+    font-weight:400;
+  }
+  .img{
+    @include box(240px,250px);
+    background: url('../assets/empty-replacement.png') no-repeat center;
+    margin: 16px auto;
+  }
+}
+
+// ===== login.html ===== //
+.login{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:106px;
+  .logo{
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+  img{
+    @include sqr(386px, 0);
+  }
+}
+.register-form{
+  display: none;
+  h2{
+    text-align: left;
+  }
+}
+
+.btn:hover{
+  background-color: lighten($color--black,0.5);
+}
+button.test:hover{
+  background-color: pink;
+}
+
+@media(max-width:$media-lg){
+  .login{
+    flex-direction: column;
+    gap:0px;
+    .login__image img{
+      display: none;
+    }
+    h2{
+      font-size: 1.25rem;
+    }
+  }
+
+  .register-form{
+    h2{
+      text-align: center;
+    }
+  }
+}

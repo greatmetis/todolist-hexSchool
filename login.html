@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="./css/main.css">
+  <title>ToDo List -- Login</title>
+</head>
+<body class="login-body" >
+  <div class="container login">
+    <section class="login__image">
+      <div class="logo">
+        <div class="logo__img"></div>
+        <h1>online todo list</h1>
+      </div>
+      <img src="./assets/login-theme-image.png" alt="theme-image">
+    </section>
+
+    <form name="login-form" class="form login-form">
+      <h2>最實用的線上代辦事項服務</h2>
+      <fieldset>
+        <div>
+          <label for="login-email">Email
+            <span>電子信箱</span>
+          </label>
+          <input type="email" id="login-email" placeholder="Email*" >
+          <span class="hint login-email-hint">Invalid Email 請輸入有效的電子信箱</span>
+        </div>
+        <div>
+          <label for="login-password">Password
+            <span>密碼</span>
+          </label>
+          <input type="password" id="login-password" placeholder="Password*">
+          <span class="hint login-password-hint">Please Enter Password 此欄不得為空</span>
+        </div>
+      </fieldset>
+      <button type="submit" class="btn btn--bg" id="login-btn">Log in</button>
+      <button type="button" id="register-switch">Register</button>
+    </form>
+    <form name="register-form" class="form register-form">
+      <h2>註冊帳號 <span>Register</span></h2>
+      <fieldset>
+        <p>
+          <label for="register-email">Email
+            <span>電子信箱</span>
+          </label>
+          <input type="email" id="register-email" placeholder="Email*" >
+        </p>
+        <p>
+          <label for="register-name">Preferred Name
+            <span>暱稱</span>
+          </label>
+          <input type="text" id="register-name" placeholder="Preferred Name" >
+        </p>
+        <p>
+          <label for="register-password">Password
+            <span>密碼</span>
+          </label>
+          <input type="password" id="register-password" placeholder="Password*">
+        </p>
+        <p>
+          <label for="register-password-repeat">Repeat Password
+            <span>再次輸入密碼</span>
+          </label>
+          <input type="password" id="register-password-repeat" placeholder="Repeat Password*">
+          <span class="hint register-password-hint">密碼不相符 Please Enter Exact Password</span>
+        </p>
+      </fieldset>
+      <button type="submit" class="btn btn--bg" id="register-btn">Register</button>
+      <button type="button" id="login-switch">Login</button>
+    </form>
+  </div>
+  
+  <script type="module"src="./js/login.js"></script>
+</body>
+</html>ˇ

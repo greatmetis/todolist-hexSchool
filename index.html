@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="./css/main.css">
+  <title>ToDo List -- HexSchool</title>
+</head>
+<body class="main-body ">
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <div class="logo__img"></div>
+        <h1>online todo list</h1>
+      </div>
+      <div class="header__info">
+        <h2 class="greeting">Hi,<span id="current-user-name">User</span></h2>
+        <button class="log-out-btn">Log Out</button>
+      </div>
+    </header>
+    <main class="main">
+      <form class="todo-input">
+        <input class="todo-input__input" type="text" placeholder="Add Todos..." required>
+        <button class="btn todo-input__add-btn" type="submit"></button>
+      </form>
+      <div class="todo-list">
+        <ul class="todo-list__filter">
+          <li data-filter-value="all" class="selected">
+            <label>All</label>
+            <input name="todo-list__filter" type="radio" value="all" checked>
+          </li>
+          <li data-filter-value="todo" >
+            <label>Todo</label>
+            <input name="todo-list__filter"
+            type="radio" value="todo">
+          </li>
+          <li data-filter-value="done" >
+            <label>Done</label>
+            <input 
+              name="todo-list__filter"
+              type="radio" value="done">
+          </li>
+        </ul>
+        <ul class="todo-list__list"></ul>
+        <div class="todo-list__info">
+          <p><span>0</span> todo</p>
+          <button class="delete-done-btn">Delete done todos</button>
+        </div>
+      </div>
+      <div class="empty-list">
+        <h2>目前沒有代辦事項</h2>
+        <div class="img"></div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="index.js"></script>
+</body>
+</html>

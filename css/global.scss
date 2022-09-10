@@ -1,0 +1,172 @@
+@import './variables.scss';
+
+//  ===== Reset ===== //
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input{
+  outline:none;
+  border: none;
+}
+button{
+  border: none;
+  outline:none;
+  background-color: transparent;
+  cursor: pointer;
+}
+ul, li{
+  list-style:none;
+}
+// ===== Typography ===== //
+*{
+  font-family: 'Noto Sans TC',  Helvetica, sans-serif, Arial;
+}
+h1,h2,h3,h4,h5,h6{
+  text-transform: uppercase;
+}
+h1{
+  font-size:1.5rem;
+  font-weight:700;
+  line-height: 38px;
+}
+h2{
+  font-size:1rem;
+  font-weight:700;
+  line-height: 23px;
+}
+h3{
+  font-size:0.875rem;
+  font-weight:700;
+}
+p{
+  font-size:0.875rem;
+  font-weight:400;
+}
+a{
+  text-decoration: none;
+}
+form fieldset{
+  border: 0;
+}
+
+// ===== Global ===== //
+*{
+  position: relative;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100vw;
+  height: 100%;
+  min-height:100vh;
+  overflow-x: hidden;
+  &.main-body{
+    background: linear-gradient(172.7deg, #FFD370 5.12%, #FFD370 53.33%, #FFD370 53.44%, #FFFFFF 53.45%, #FFFFFF 94.32%) no-repeat 100%;
+  }
+  &.login-body{
+    background-color: $color--primary;
+  }
+}
+@media(max-width:$media-lg){
+  body{
+    &.main-body{
+      background: $color--primary; 
+    }
+  }
+}
+form{
+  label,input,a,button{
+    display: block;
+  }
+  label{
+    font-size:0.875rem;
+    font-weight:700;
+    line-height: 20px;
+    margin-bottom: 0.25rem;
+  }
+}
+// ===== Screen Size ===== //
+
+.container{
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0 auto; 
+  padding: 1rem;
+}
+
+// ===== Utilities ===== //
+.error{
+  color:$color--warning;
+}
+
+// ===== Components ===== //
+.btn{
+  // @include sqr(40px);
+  &.btn--bg{
+    background-color: $color--black;
+    color:$color--white;
+    font-weight: 700;
+    padding: 16px 48px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    &:disabled{
+      cursor: not-allowed;
+      background-color: lighten($color--black,10);
+    }
+  }
+}
+
+.logo{
+  *{
+    display: inline-block;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .logo__img{
+    @include sqr(33.42px);
+    display: inline-block;
+    background: url('../assets/todo-logo.svg') no-repeat center;
+  };
+}
+
+
+.form{
+  fieldset{
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    span.hint{
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      visibility: hidden; // to remove it from accessability tree but keep it in DOM tree 
+      opacity: 0;
+      &.error{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    input:focus{
+      box-shadow: inset 1px 1px 20px rgba($color--primary,0.3);
+    }
+  }
+  h2{
+    margin-bottom:1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  button{
+    margin: 1.5rem auto;
+    font-weight: 700;
+  }
+  button[type="button"]{
+    text-align: center;
+    color:$color--black;
+  }
+  input{
+    @include box(100%,48px);
+    padding:0.875rem 1rem;
+  }
+}

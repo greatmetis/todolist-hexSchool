@@ -1,0 +1,35 @@
+$color--primary:#FFD370;
+$color--white:#fff;
+$color--black:#333333;
+$color--gray:#9F9A91;
+$color--gray-light:#EFEFEF;
+$color--warning:#D87355;
+$bdrs:10px;
+$media-sm : 576px;
+$media-md : 768px;
+$media-lg: 992px;
+
+@mixin box($w:auto,$h:auto){
+  width: $w;
+  height: $h;
+  border-radius: $bdrs;
+  min-width: 304px;
+  max-width: 500px;
+}
+
+@mixin sqr($s,$bdrs:$bdrs){
+  width: $s;
+  height:$s;
+  border-radius:$bdrs;
+}
+
+@mixin shadow{
+  box-shadow: 0 0 15px rgba(black,0.15);
+}
+
+@mixin transition($p,$d:0,$dur:.2s){
+  transition-property: $p;
+  transition-delay: $d;
+  transition-duration: $dur;
+  transition-timing-function: ease-in;
+}
