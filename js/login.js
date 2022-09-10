@@ -90,7 +90,7 @@ RegisterSwitch.addEventListener('click', function () {
 LoginButton.addEventListener('click', function (e) {
   e.preventDefault()
   if (!checkValue(LoginEmail, LoginPassword)) {
-    redirect()
+    redirect('index.html')
     UI.showError(LoginEmailHint)
     UI.showError(LoginPasswordHint)
     return
