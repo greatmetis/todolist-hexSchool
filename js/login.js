@@ -36,7 +36,6 @@ class Login {
       .post(`${USERS_API}/sign_in`, user)
       .then((res) => {
         const Authorization = res.headers.authorization
-        console.log(Authorization)
         setLocalStorage('Authorization', Authorization)
         setLocalStorage('currentUser', res.data.nickname)
 
@@ -49,9 +48,9 @@ class Login {
         })
         LoginEmail.value = LoginPassword.value = ''
         redirect('index.html')
+        return
       })
       .catch((err) => {
-        console.log(err)
         const message = err.toJSON().message
         swAlertFailed(
           {

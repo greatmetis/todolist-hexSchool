@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     )
     .catch((err) => {
       console.log(err.toJSON())
-      redirect('./login.html')
+      redirect('login.html')
     })
 })
 // Add todo
@@ -78,6 +78,7 @@ TodoList.addEventListener('click', function (e) {
   }
 })
 
+// TODO: Edit
 // Filter todos
 TodoFilter.addEventListener('click', function (e) {
   const selectedType = e.target.innerText.toLowerCase()

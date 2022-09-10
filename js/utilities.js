@@ -1,5 +1,6 @@
 export const redirect = (url='index.html') => {
-  window.location.href = url
+  let currentPath = window.location.pathname.split('/')[1]
+  window.location.pathname = `/${currentPath}/${url}`
 }
 
 export const setLocalStorage = (key, value) => {
