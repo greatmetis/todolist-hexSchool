@@ -48,7 +48,7 @@ class Login {
           timer: 1000
         })
         LoginEmail.value = LoginPassword.value = ''
-        redirect('/index.html')
+        redirect('/')
         return res.toJSON()
       })
       .catch((err) => {
