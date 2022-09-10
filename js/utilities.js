@@ -1,5 +1,5 @@
 export const redirect = (url) => {
-  window.location.href = url
+  window.location.pathname = url
 }
 
 export const setLocalStorage = (key, value) => {

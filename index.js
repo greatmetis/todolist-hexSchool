@@ -115,7 +115,7 @@ LogoutBtn.addEventListener('click', function (e) {
           })
           .then((res) => {
             console.log(res)
-            redirect('/login.html')
+            redirect('/')
           })
           .catch((err) => console.error(err))
       },
